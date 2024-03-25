@@ -5,9 +5,13 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const loggerMiddleware = require('./loggerMiddleware')
 
 //Parse incoming request bodies.
 app.use(express.urlencoded({extended : true }));
+
+//Integrating Middleware
+app.use(loggerMiddleware)
 
 //Set EJS as templating engine
 app.set('view engine', 'ejs');
